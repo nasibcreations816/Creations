@@ -1,1 +1,35 @@
+let movie;
+var index=0;
+let s="Coming to theaters near you!"//string 
+let d="August 11th"
+function setup() {
+  createCanvas(500, 500);
+}
 
+function preload(){
+  x=width;
+movie= loadImage('deadpool3.jpg');
+  i=loadFont('IMPACT.TTF');//load fonts
+  c=loadFont('COMIC.TTF')
+  
+}
+
+function draw() {
+  background(220);
+  
+  image(movie,20,20);
+  filter(DILATE);
+  tint(255,5,5);
+  textFont(i);
+  textSize(30);
+  text(s,x,450);//call the string 
+  textFont(c);//call the font uploaded
+  textSize(20);
+  text(d,x,100);
+  
+  x= x-10;
+  let w=textWidth(index);//calculate the text
+  if (x<-w){//if x is greater than width start moving
+  x=width;
+  }
+}
