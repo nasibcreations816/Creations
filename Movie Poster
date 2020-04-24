@@ -1,6 +1,1 @@
-function Setup(){
-createCanvas(400,400);
-}
-function Draw(){
-background(220);
-}
+
