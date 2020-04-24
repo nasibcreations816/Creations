@@ -1,0 +1,49 @@
+let soundFile;
+let reverb;
+function preload(){
+  soundFormats('wav');//load the uploaded sound
+  mirror=loadImage('mirror.gif');//load the video
+  scream= loadSound('scream.wav');
+  
+}
+function setup() {
+  scream.play();
+  createCanvas(400, 400);
+  
+  reverb = new p5.Reverb();
+  soundFile.disconnect(); 
+  reverb.process(soundFile, 2);//decay the sound by 2
+}
+function draw() {
+  background(220);
+  image(mirror,60,50,250,300);//load the video onto the canvas
+  fill(200,100);
+  //mirror.mask(maskImage);
+  push();
+  noStroke();
+  fill(220);
+  beginShape();
+  vertex(305,200);
+  bezierVertex(300,15,52,60,310,50);
+  endShape(CLOSE);
+  beginShape();
+  vertex(190,54);
+  bezierVertex(45,45,65,340,60,50);
+  endShape(CLOSE);
+  beginShape();
+  vertex(305,200);
+  bezierVertex(305,380,50,340,310,350);
+  endShape(CLOSE);
+  beginShape();
+  vertex(65,200);
+  bezierVertex(65,380,343,340,60,350);
+  endShape(CLOSE);
+  rect(305,50,10,300);
+  rect(56,50,10,300);
+  rect(45,45,270,10);
+  rect(55,343,260,10);
+  pop();
+   fill(200,50);
+  ellipse(185,200,230,280);
+  ellipse(185,200,240,290);
+}
